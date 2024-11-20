@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* color palette */
+    --blueberry: #0A84FF; 
+    --lightblue: #CEE6FF;
+    --black: #000000;
+    --white: #FFFFFF; 
+    --cherry: #FF375F;
+    --orange: #FF9F0A; 
+    --lime: #30D158; 
+    --grape: #BF5AF2;
+    --button-radius: 50px;
+}
+
+.container {
+    font-family: Poppins, sans-serif;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+* {
+    font-family: Figtree, sans-serif;
+}
+
+h1 {
+    color: var(--blueberry);
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+button {
+    font-family: Poppins, sans-serif;
+}
+
+.cities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+.city {
+    border: 0.5px solid #4C4C4C;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 80%;
+    text-align: left;
+}
+.timeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 200px;
+    position: relative;
+}
+.time-block {
+    height: 30px;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+#update-cities, #save-png, .back-btn, .next-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+#update-cities, .next-btn {
+    color: var(--white);
+    background: var(--blueberry);
+}
+
+#save-png, .back-btn {
+    background: var(--lightblue);
+}
+
+/* Main timeline container */
+.timeline {
+    width: 100%;
+    margin: 20px auto;
+    position: relative;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+/* Time labels */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6a6a6a;
+    margin-bottom: 10px;
+}
+
+/* Container for the time blocks */
+.time-block-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+/* Row for each city */
+.time-row {
+    position: relative;
+    height: 30px;
+}
+
+/* Time block styling */
+.time-block {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+
+/* page 2 styles */
+body { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-input-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-div {
+    padding-top: 30px;
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.outer-div {
+    width: 850px;
+}
+
+.top-div {
+    padding-top: 50px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.bottom-div {
+    padding-top: 50px;
+}
+
+.buttons {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+}
+
+#city-chosen {
+    margin-top: 20px;
+}
+
+.city-tag, .chosen-city {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.city-tag:hover {
+    background-color: #FF8C00;
+}
+
+.search-bar {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.results {
+    top: 54px;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.result-item {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.result-item:hover {
+    background-color: #e6eaff;
+}
+
+/* page three */
+#suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.suggestion-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #ddd;
+}
+
+/* page four */
+.city {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+  }
+  
+  .city-name {
+    padding: 5px 10px;
+    border-radius: var(--button-radius);
+    color: white;
+  }
+  
+  .time-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  input[type="number"] {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  select {
+    padding: 5px;
+  }
+  
+  span {
+    font-weight: bold;
+  }
