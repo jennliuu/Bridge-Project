@@ -19,12 +19,12 @@ async function filterCities(event) {
     // if statement: to start giving recommendations when a user writes more than two characters of a city name
     if (query.length < 2) {
         // if it is less than two characters - don't display anything 
-        cityResults.style.display = 'none';
+        cityResults.style.display = "none";
         return;
     }
 
     // saving the url in a variable 
-    const url = `http://api.geonames.org/searchJSON?name_startsWith=${query}&maxRows=10&username=jennliuu`;
+    const url = `https://secure.geonames.org/searchJSON?name_startsWith=${query}&maxRows=10&username=jennliuu`;
 
     // to retrieve data from the api 
     const response = await fetch(url);
