@@ -17,72 +17,127 @@
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
     <script src="scripts/scripts.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
   </head>
 
   <body>
-    <!-- adding the logo -->
+    <!-- Logo -->
     <div class="logo-div">
-        <img src="images/Bridge Logo.png" 
-        alt="Logo of the BRIDGE website"
-        width="15%"/>
-      </div>
-    <div class="home-container">
-        <header>
-            <h1>Currently showing timezones converted to Taipei, Taiwan</h1>
-        </header>
-        <main class="main-grid">
-            <!-- left section with city cards -->
-            <section class="cities">
-              <div class="city-card">
-                <h2>Taipei, Taiwan</h2>
-                <p class="timezone">Base timezone: <span id="base-time">9:00AM-5:00PM</span></p>
-              </div>
-              <div class="city-card">
-                <h2>New York, USA</h2>
-                <p class="timezone">Actual time: <span class="time">9AM-5PM</span></p>
-                <p class="timezone">Converted time: <span id="second-time">9PM-5AM</span></p>
-                <button class="base-btn">Make base timezone</button>
-              </div>
-              <div class="city-card">
-                <h2>London, UK</h2>
-                <p class="timezone">Actual time: <span class="time">9AM-5PM</span></p>
-                <p class="timezone">Converted time: <span id="third-time">5PM-1AM</span></p>
-                <button class="base-btn">Make base timezone</button>
-              </div>
-            </section>
-        <!-- right section with time graph -->
-        <section class="graph">
-            <div class="timeline">
-              <div class="time-label">12 AM</div>
-              <div class="time-label">2</div>
-              <div class="time-label">4</div>
-              <div class="time-label">6</div>
-              <div class="time-label">8</div>
-              <div class="time-label">10</div>
-              <div class="time-label">12 PM</div>
-              <div class="time-label">2</div>
-              <div class="time-label">4</div>
-              <div class="time-label">6</div>
-              <div class="time-label">8</div>
-              <div class="time-label">10</div>
-              <div class="time-label">12 AM</div>
-            </div>
-            <div class="bars">
-              <div class="bar orange"></div>
-              <div class="bar red"></div>
-              <div class="bar purple"></div>
-            </div>
-            <div class="notes">
-              <p>1. New York and London have availability from 9PM-1AM CST</p>
-              <p>2. There are no overlapping availabilities for all three countries</p>
-            </div>
-        </section>
-        </main>
-        <!-- div for bottom buttons -->
-        <div class="buttons">
-            <button id="update-btn">Update Cities</button>
-            <button id="save-btn">Save as PNG</button>
-        </div>
+      <img src="images/Bridge Logo.png" alt="Logo of the BRIDGE website" width="15%" />
     </div>
-</body>
+
+    <div class="home-container">
+      <!-- Header -->
+      <header>
+        <h1 id="base-city-heading">Currently showing timezones converted to </h1>
+      </header>
+
+      <!-- Main content -->
+      <main class="main-grid">
+        <!-- Left section for city cards -->
+        <section class="cities" id="cities-container">
+          <!-- Base city will be dynamically added here -->
+        </section>
+
+        <!-- Right section for graph -->
+        <section class="graph">
+            <div id="graph-section"></div>
+                <div id="graph-hours" class="graph-hours"></div>
+                <div id="graph-container" class="graph-container"></div>
+            </>
+
+          <!-- Notes -->
+            <div class="notes" id="notes-container">
+                <p id="note-1"></p>
+                <p id="note-2"></p>
+            </div>
+        </section> 
+      </main>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button id="update-btn">Update Cities</button>
+        <button id="save-btn">Save as PNG</button>
+      </div>
+      <!-- Modal Structure -->
+      <div id="welcome-modal" class="modal">
+        <div class="modal-content">
+          <h2>Hello! Welcome to <span class="bridge-highlight">BRIDGE</span>.</h2>
+          <p>
+          Effortlessly coordinate calls with friends and family across different time zones! 
+          Our tool gathers everyone's availability and displays the best times to 
+          connect, making scheduling simple and stress-free.
+          </p>
+        <button id="close-modal-btn" class="modal-close-btn">Get Started</button>
+      </div>
+    </div>
+    </div>
+  </body>
 </html>
+
+
+<!-- old code-->
+<!--<body>
+    <div class="logo-div">
+      <img src="images/Bridge Logo.png" 
+      alt="Logo of the BRIDGE website"
+      width="15%"/>
+    </div>
+  <div class="home-container">
+      <header>
+          <h1>Currently showing timezones converted to Taipei, Taiwan</h1>
+      </header>
+      <main class="main-grid">
+          <section class="cities">
+            <div class="city-card">
+              <h2>Taipei, Taiwan</h2>
+              <p class="timezone">Base timezone: <span id="base-time">9:00AM-5:00PM</span></p>
+            </div>
+            <div class="city-card">
+              <h2>New York, USA</h2>
+              <p class="timezone">Actual time: <span class="time">9AM-5PM</span></p>
+              <p class="timezone">Converted time: <span id="second-time">9PM-5AM</span></p>
+              <button class="base-btn">Make base timezone</button>
+            </div>
+            <div class="city-card">
+              <h2>London, UK</h2>
+              <p class="timezone">Actual time: <span class="time">9AM-5PM</span></p>
+              <p class="timezone">Converted time: <span id="third-time">5PM-1AM</span></p>
+              <button class="base-btn">Make base timezone</button>
+            </div>
+          </section>
+      <section class="graph">
+          <div class="timeline">
+            <div class="time-label">12 AM</div>
+            <div class="time-label">2</div>
+            <div class="time-label">4</div>
+            <div class="time-label">6</div>
+            <div class="time-label">8</div>
+            <div class="time-label">10</div>
+            <div class="time-label">12 PM</div>
+            <div class="time-label">2</div>
+            <div class="time-label">4</div>
+            <div class="time-label">6</div>
+            <div class="time-label">8</div>
+            <div class="time-label">10</div>
+            <div class="time-label">12 AM</div>
+          </div>
+          <div class="bars">
+            <div class="bar orange"></div>
+            <div class="bar red"></div>
+            <div class="bar purple"></div>
+          </div>
+          <div class="notes">
+            <p>1. New York and London have availability from 9PM-1AM CST</p>
+            <p>2. There are no overlapping availabilities for all three countries</p>
+          </div>
+      </section>
+      </main>
+      <div class="buttons">
+          <button id="update-btn">Update Cities</button>
+          <button id="save-btn">Save as PNG</button>
+      </div>
+  </div>
+</body>
+</html>-->
+  

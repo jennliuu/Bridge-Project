@@ -75,7 +75,7 @@ function createSelect(options) {
   return select; // return the dropdown element 
 }
 
-// creating a function to assign the other cities two random colors based off the color palette 
+// creating a function to assign the other cities two random colors based off the color palette -- need to change 
 function generateColor() {
   const colors = ["#FF375F", "#BF5AF2", "#30D158"];
   return colors[Math.floor(Math.random() * colors.length)];
@@ -108,7 +108,7 @@ function saveAvailabilities() {
   availabilities.push({
     city: baseCityData,
     start: {  // saving the information into objects 
-      hour: baseInputs[0].value || "09",
+      hour: baseInputs[0].value || "09", 
       minute: baseInputs[1].value || "00",
       period: baseInputs[2].value || "AM",
     },

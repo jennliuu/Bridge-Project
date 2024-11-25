@@ -7,6 +7,7 @@ const notesContainer = document.getElementById("notes-container");
 const baseCityHeading = document.getElementById("base-city-heading");
 const graphContainer = document.getElementById("graph-container");
 const graphHours = document.getElementById("graph-hours");
+const updateButton = document.getElementById('update-btn');
 
 
 const geoNamesUsername = "jennliuu";
@@ -60,8 +61,18 @@ function convertToBaseTimezone(cityAvailability, cityTimezone, baseTimezone) {
   const { start, end } = cityAvailability;
   
   // converting the inputted times from the 12 hour format to the 24 hour format to help with timezone conversions 
-  const startHour = start.period === "PM" && start.hour !== "12" ? parseInt(start.hour) + 12 : parseInt(start.hour);
-  const endHour = end.period === "PM" && end.hour !== "12" ? parseInt(end.hour) + 12 : parseInt(end.hour);
+  let startHour;
+  if (start.period === "PM" && start.hour !== "12") {
+    startHour = parseInt(start.hour) + 12;
+  } else {
+    startHour = parseInt(start.hour);
+  }
+  let endHour;
+  if (end.period === "PM" && end.hour !== "12") {
+    endHour = parseInt(end.hour) + 12;
+  } else {
+    endHour = parseInt(end.hour);
+  }
   
   // using luxon's fromObject method to find the citys local timezone for the start and end times 
   const startTime = DateTime.fromObject(
@@ -95,7 +106,7 @@ function updateCityCards() {
   baseCard.className = "city-card"; // the class name 
   // adding the html in the card 
   baseCard.innerHTML = `
-    <h2 class="city-name base-city-name">${baseCity.name}</h2>
+    <h2 class="city-name base-city-name">${baseCity.name}, ${baseCity.countryName}</h2>
     <p class="timezone">
       Base timezone: <span class="time-range base-time-range">${availabilities[0].start.hour}:${availabilities[0].start.minute}${availabilities[0].start.period} — ${availabilities[0].end.hour}:${availabilities[0].end.minute}${availabilities[0].end.period}</span>
     </p>
@@ -117,7 +128,7 @@ function updateCityCards() {
     const timeRangeClass = index === 0 ? "second-time-range" : "third-time-range";
     // adding the extra html in the card 
     card.innerHTML = `
-      <h2 class="city-name ${cityClass}">${city.name}</h2>
+      <h2 class="city-name ${cityClass}">${city.name}, ${city.countryName}</h2>
       <p class="timezone">
         Actual time: <span class="time-range actual-time-range">${availabilities[index + 1].start.hour}:${availabilities[index + 1].start.minute}${availabilities[index + 1].start.period} — ${availabilities[index + 1].end.hour}:${availabilities[index + 1].end.minute}${availabilities[index + 1].end.period}</span>
       </p>
@@ -260,14 +271,19 @@ async function init() {
 // Run initialization
 init();
 
+// event listener go to the next page 
+updateButton.addEventListener('click', () => {
+  // pressing the button to get to the next page 
+  window.location.href = 'basecity.html';
+});
 
 
 
-// to do 
-// add next and back buttons 
 
 // overall 
-// update the first page 
+// update the first page + add pop up that introduces the site 
+// make sure code is codeable 
+
+
 // media queries for different screen sizes 
-// add the first page + add the pop up that introduces the site 
 // fix logo image spacing

@@ -2,13 +2,11 @@
 const citySearchInput = document.getElementById('city-search'); 
 const cityResults = document.getElementById('city-results'); 
 const cityChosenContainer = document.getElementById('city-chosen');
-
-// let selectedBaseCity = ''; // storing the selected base city name here
-let selectedBaseCityData = {};
 const nextButton = document.querySelector('.next-btn');
 const backButton = document.querySelector('.back-btn');
 
-
+// a variable to store the base city data in an object 
+let selectedBaseCityData = {};
 
 // logging into the geonames API 
 const geoNamesUsername = 'jennliuu';
@@ -46,7 +44,7 @@ function displayCities(cities) {
     // setting the style to block 
     cityResults.style.display = 'block';
 
-    cities.forEach(city => { // to iterate over each city in the data 
+    cities.forEach(city => { // to iterate over each city in the data - arrow function 
         const div = document.createElement('div'); // creating a div for a city item in the results dropdown
         div.classList.add('result-item'); // adding a class for styling of the result item 
         div.textContent = `${city.name}, ${city.countryName}`; // how each city should look 
@@ -59,7 +57,8 @@ function displayCities(cities) {
                 latitude: city.lat,
                 longitude: city.lng
             }
-            console.log(selectedBaseCityData);
+            // for testing 
+            // console.log(selectedBaseCityData);
             displayChosenCity(selectedBaseCityData); // to display the city 
         };
 
@@ -86,7 +85,7 @@ function displayChosenCity(cityData) {
     removeButton.textContent = " x"; // the remove button should be an x
     removeButton.style.cursor = "pointer"; // giving indication it is a button 
 
-    // adding an event listener to successfully take out the tag 
+    // adding an event listener and arrow function to successfully take out the tag 
     removeButton.addEventListener('click', () => { 
         cityTag.remove(); // remove the city tag 
         selectedBaseCityData = {};
@@ -102,7 +101,7 @@ function displayChosenCity(cityData) {
 citySearchInput.addEventListener('keydown', filterCities);
 
 
-// event listener for the next button 
+// event listener and arrow function for the next button 
 nextButton.addEventListener("click", () => {
     // Validate that a city has been selected
     if (!selectedBaseCityData) {
@@ -116,7 +115,7 @@ nextButton.addEventListener("click", () => {
     window.location.href = "cities.html";
   }); 
 
-// event listener for the back button
+// event listener and arrow function for the back button
   backButton.addEventListener("click", () => {
     // Navigate to the last page 
     window.location.href = "index.html";
