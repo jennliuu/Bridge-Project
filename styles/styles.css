@@ -1,9 +1,8 @@
 /* ===== YOUR CSS GOES HERE ===== */
 /* ===== START BY IMPORTING YOUR FONTS ===== */ 
 /* ===== NEXT WRITE GLOBAL STYLES, THEN USE MEDIA QUERIES FOR LAYOUT/STYLE ADJUSTMENTS ===== */
-/* ===== STARTER CSS BELOW FOR body AND p IS JUST AN EXAMPLE... YOU MAY DELETE IT ===== */
-/* importing the two fonts */
 
+/* importing the two fonts */
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -19,6 +18,7 @@
     --grape: #BF5AF2;
     /* button settings */
     --button-radius: 50px;
+    --button-padding: 10px 20px;
 }
 
 /* setting up the body to be a flexbox */
@@ -33,8 +33,8 @@ body {
 }
 
 /* setting widths of the overall div  */
-.home-container {
-    min-width: 1200px;
+.outer-div {
+    min-width: 1000px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -56,11 +56,11 @@ h1 {
     justify-content: flex-start;
 }
 
-/* adding a grid for two sides of the page  */
+/* adding a grid for two sides of the first and last page  */
   .main-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 30px;
+    gap: 50px;
   }
   
   /* section for city cards to be flex */
@@ -84,24 +84,13 @@ h1 {
   .city-card h2 {
     font-size: 1.2rem;
     margin: 0;
-    font-weight: 500; 
+    font-weight: 600; 
   }
   
   /* fixing line height */
   .timezone {
     font-size: 16px;
     margin: 5px 0;
-  }
-  
-  /* city card time zone colors */
-  #base-time {
-    color: var(--orange);
-  }
-  #second-time {
-    color: var(--cherry);
-  }
-  #third-time {
-    color: var(--grape);
   }
   
   /* base timezone buttons */
@@ -114,86 +103,7 @@ h1 {
     cursor: pointer;
     font-size: 0.8rem;
   }
-
-  /* graph settings */
-  .graph {
-    margin: 20px 0;
-    position: relative;
-  }
-
-  /* timeline div settings */
-  .timeline {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    position: relative;
-    margin-bottom: 15px;
-  }
-  .timeline .time-label {
-    position: relative;
-  }
   
-   /* THIS DOESNT WORK RIGHT NOW 
-  .graph-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: repeating-linear-gradient(
-      to right,
-      transparent 0%,
-      transparent 12.5%,
-      #007aff 12.6%, Match blue color to align 
-      #007aff 13%
-    );
-    z-index: 1;
-  }
-  */
-
-
-
-
-   /* dont know how to describe this yet */
-  .bars {
-    position: relative;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .bar {
-    height: 50px;
-    border-radius: var(--button-radius);
-    position: relative;
-    z-index: 2;
-  }
-  
-  .orange {
-    background-color: #ff9100;
-    width: 100%;
-  }
-  
-  .red {
-    background-color: #ff4d4d;
-    width: 70%;
-  }
-  
-  .purple {
-    background-color: #a94dff;
-    width: 50%;
-  }
-  
-  .notes {
-    font-size: 16px;
-    margin-top: 10px;
-    text-align: left;
-  }
-  
-
-
-
   /* button div styles */
   .buttons {
     display: flex;
@@ -204,7 +114,7 @@ h1 {
   /* button styles */
   #update-btn, #save-btn, .back-btn, .next-btn {
     margin: 10px;
-    padding: 10px 20px;
+    padding: var(--button-padding);
     border: none;
     border-radius: var(--button-radius);
     cursor: pointer;
@@ -217,4 +127,198 @@ h1 {
 
   #save-btn, .back-btn {
     background: var(--lightblue);
+}
+
+
+  /* basecity.html and basecity.js styles */
+
+  /* specific width of the content */
+ .basecity-container {
+    width: 850px;
+}
+
+  /* specifications of top-div */
+ .top-div {
+    padding-top: 50px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+  /* specifications of bottom-div */
+ .bottom-div {
+    padding-top: 50px;
+}
+
+  /* specifications of the city tag from basecity.js */
+ .city-tag, .chosen-city {
+    display: inline-block;
+    padding: var(--button-padding);
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+/* hover state */
+ .city-tag:hover {
+    background-color: #FF8C00;
+}
+
+  /* search bar specifications */
+ .search-bar {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+  /* search bar content specifications */
+ .search-bar input[type="text"] {
+    width: 100%;
+    padding: var(--button-padding);
+    border: 1px solid #ddd;
+    border-radius: var(--button-radius);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+  /* search bar results specifications */
+ .results {
+    top: 54px;
+    width: 100%;
+    position: absolute;
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+/* each item padding */
+ .result-item {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+/* hover state */
+ .result-item:hover {
+    background-color: var(--lightblue);
+}
+
+  /* cities.html and cities.js styles */
+
+  /* suggestions div specifications */
+  #suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+  /* each suggestion item styles */
+  .suggestion-item {
+  background-color: #f0f0f0;
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  cursor: pointer;
+}
+
+  /* hovered suggestion item style */
+  .suggestion-item:hover {
+  background-color: #ddd;
+}
+
+  /* avail.html and avail.js styles */
+
+/* city container specifications*/
+.city {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+}
+
+/* city tag styles */
+  .city-name {
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  color: var(--white);
+}
+
+/* time input specifications */
+  .time-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* input number styles */
+  input[type="number"] {
+  width: 40px;
+  padding: 5px;
+  text-align: center;
+}
+
+/* select option padding */
+  select {
+  padding: 5px;
+}
+
+/* altogether.js and altogether.html styles */
+
+/* the overall container of the graph specifications */
+.graph-container {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr); /* one column per hour */
+  gap: 3px; 
+  grid-auto-rows: 130px; 
+  margin-top: 20px; /* spacing above the graph */
+}
+
+/* structuring the graph hours*/
+.graph-hours {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr); /* one column per hour label */
+  text-align: center;
+  margin-bottom: 10px; /* spacing below hour labels */
+}
+
+/* sizing and border radius for each availability square */
+.availability-square {
+  height: 130px; 
+  border-radius: 3px; 
+  background-color: #e0e0e0; 
+}
+
+/* graph hour label specifications*/
+.hour-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--black);
+}
+
+/* city card specifications */
+.city-card {
+  margin-top: 20px; 
+  padding: 20px; 
+  border: 0.5px solid #4C4C4C ;
+  border-radius: 15px; 
+}
+
+/* city card and time range colors*/
+.base-city-name, .base-time-range {
+  color: var(--orange);
+  padding: 0;
+}
+.second-city-name, .second-time-range {
+  color: var(--cherry);
+  padding: 0;
+}
+.third-city-name, .third-time-range {
+  color: var(--grape);
+  padding: 0;
 }

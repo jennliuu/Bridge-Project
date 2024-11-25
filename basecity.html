@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,45 +9,43 @@
     <!-- PUT A DESCRIPTION IN HERE -->
     <meta name="description" content="describe content of the page here...." />
     <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
-    <link rel="stylesheet" href="styles.normalize.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
     <link rel="icon" href="images/Favicon.png"/>
     <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
     <!-- LINK TO YOUR STYLES -->
-    <link rel="stylesheet" href="styles/styles2.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
-    <script src="scripts/scripts.js" defer></script>
-    <script src="scripts/search.js" defer></script>
-    <script src="scripts/suggestions.js" defer></script>
-
+    <script src="scripts/basecity.js" defer></script>
   </head>
 
 
-  <body id="user-input-body">
+  <body>
     <!-- YOUR HTML GOES HERE -->
     <div class="logo-div">
       <img src="images/Bridge Logo.png" 
       alt="Logo of the BRIDGE website"
       width="15%"/>
     </div>
+    <!-- outside div -->
     <div class="outer-div">
       <div class="top-div">
-        <h1>Type in up to 2 cities to check overlapping times</h1>
+        <h1>Which city do you want to convert everyone’s time zones to?</h1>
+        <!-- search bar -->
         <div class="search-bar">
+          <!-- need to run the javascript function -->
           <input type="text" id="city-search" placeholder="Type in a city" oninput="filterCities()">
           <div id="city-results" class="results"></div>
         </div>
       </div>
       <div class="bottom-div">
-        <p>Suggestions</p>
-        <div id="suggestions">
-          <!-- Suggestions will appear here -->
-        </div>
         <p>City Chosen</p>
         <div id="city-chosen">
-            <!-- Chosen city tags will appear here -->
+            <!-- the chosen city will appear here -->
         </div>
       </div>
+    </div>
+    <!-- div for the bottom buttons -->
     <div class="buttons">
         <button class="back-btn">Back</button>
         <button class="next-btn">Next</button>

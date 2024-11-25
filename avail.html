@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PUT A TITLE IN HERE -->
+    <title>BRIDGE</title>
+    <!-- PUT A DESCRIPTION IN HERE -->
+    <meta name="description" content="describe content of the page here...." />
+    <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="icon" href="images/Favicon.png"/>
+    <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
+    <!-- LINK TO YOUR STYLES -->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
+    <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
+    <script src="scripts/avail.js" defer></script>
+  </head>
+<body>
+    <!-- Logo -->
+    <div class="logo-div">
+      <img src="images/Bridge Logo.png" alt="Logo of the BRIDGE website" width="15%" />
+    </div>
+
+    <!-- Main Content -->
+    <div class="outer-div">
+      <div class="top-div">
+        <h1>Your city availabilities</h1>
+        <p>
+          Ask your friends/family when they are free in their time zone. This step is optional. If you do not have a specific time you want to check aside from working hours, just hit next!
+        </p>
+      </div>
+
+      <!-- Base City Section -->
+      <div class="city-block">
+        <p class="city-title">Base city:</p>
+        <div id="base-city-container" class="city"></div>
+      </div>
+
+      <!-- Other Cities Section -->
+      <div class="city-block">
+        <p class="city-title">Other cities:</p>
+        <div id="other-cities-container"></div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="buttons">
+        <button class="back-btn">Back</button>
+        <button class="next-btn">Next</button>
+      </div>
+    </div>
+  </body>
+</html>
