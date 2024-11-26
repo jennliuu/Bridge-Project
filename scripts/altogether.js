@@ -233,20 +233,35 @@ function updateNotes() {
   `;
 } 
 
-// function to set a new base city -- to be updated 
+// function to set a new base city
 function setNewBaseCity(newBaseCityName) {
-  const newBaseCity = otherCities.find((city) => city.name === newBaseCityName);
+  // find the new base city from the otherCities array
+  let newBaseCityIndex = -1;
+  for (let i = 0; i < otherCities.length; i++) {
+    if (otherCities[i].name === newBaseCityName) { // if the new base city is the same as another city in the other cities 
+      newBaseCityIndex = i;
+      break; // once found, break the loop 
+    }
+}
+  // if the city exists in the otherCities array
+  if (newBaseCityIndex !== -1) {
+    // swap the current base city with the new base city
+    const newBaseCity = otherCities[newBaseCityIndex];
+    otherCities.splice(newBaseCityIndex, 1); // remove the new base city from the otherCities array
+    otherCities.unshift(baseCity); // add the current base city to the beginning of the otherCities array
 
-  // update the base city and other cities 
-  baseCity = newBaseCity;
-  otherCities = [baseCity, ...otherCities.filter((city) => city.name !== newBaseCityName)];
+    // update the global variables
+    baseCity = newBaseCity;
 
-  // save the updated data back to the local storage 
-  localStorage.setItem("selectedBaseCityData", JSON.stringify(baseCity));
-  localStorage.setItem("selectedComparisonCities", JSON.stringify(otherCities));
+    // save the updated data back to localStorage
+    localStorage.setItem("selectedBaseCityData", JSON.stringify(baseCity));
+    localStorage.setItem("selectedComparisonCities", JSON.stringify(otherCities));
 
-  // reload the page to reflect the new changes 
-  location.reload();
+    // reload the page to reflect the new changes
+    location.reload();
+  } else {
+    console.error("City not found in otherCities array");
+  }
 }
 
 // to help initialize the page 
@@ -281,9 +296,6 @@ updateButton.addEventListener('click', () => {
 
 
 // overall 
-// update the first page + add pop up that introduces the site 
-// make sure code is codeable 
-
-
 // media queries for different screen sizes 
 // fix logo image spacing
+// add make base timezone in intro
