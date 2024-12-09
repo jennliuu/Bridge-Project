@@ -4,18 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- PUT A TITLE IN HERE -->
-    <title>BRIDGE</title>
-    <!-- PUT A DESCRIPTION IN HERE -->
-    <meta name="description" content="describe content of the page here...." />
-    <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
+    <!-- title -->
+    <title>Base City</title>
+    <!-- description -->
+    <meta name="description" content="To help choose a base city to convert the other two cities' timezones to" />
     <link rel="stylesheet" href="styles/normalize.css" />
-    <link rel="icon" href="images/Favicon.png"/>
-    <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
-    <!-- LINK TO YOUR STYLES -->
+    <link rel="icon" href="images/bridge-favi.png"/>
+    <!-- styles -->
     <link rel="stylesheet" href="styles/styles.css" />
-    <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
-    <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
+    <!-- js -->
     <script src="scripts/basecity.js" defer></script>
   </head>
 
@@ -23,9 +20,11 @@
   <body>
     <!-- YOUR HTML GOES HERE -->
     <div class="logo-div">
-      <img src="images/Bridge Logo.png" 
-      alt="Logo of the BRIDGE website"
-      width="15%"/>
+      <img 
+        src="images/Bridge Logo.png" 
+        alt="Logo of the BRIDGE website" 
+        width="10%"
+        />
     </div>
     <!-- outside div -->
     <div class="outer-div">
@@ -34,7 +33,7 @@
         <!-- search bar -->
         <div class="search-bar">
           <!-- need to run the javascript function -->
-          <input type="text" id="city-search" placeholder="Type in a city" oninput="filterCities()">
+          <input type="text" id="city-search" placeholder="Type in a city"> 
           <div id="city-results" class="results"></div>
         </div>
       </div>
@@ -51,4 +50,25 @@
         <button class="next-btn">Next</button>
     </div>
   </div>
+  <!-- footer --> 
+  <footer class="footer">
+    <div class="footer-content">
+      <p>
+        Created by Jennifer Liu, view my portfolio at 
+        <a href="https://jennliuu.com/">jennliuu.com</a>
+      </p>
+      <p>
+        Project documents: 
+        <a href="https://docs.google.com/document/d/1fIKSN_AsMpegcPEIbLWEXRTFIwjoLat0dek5IuZX5_Y/edit?usp=sharing">Project Proposal</a> &bull; 
+        <a href="https://www.figma.com/design/Iplv9OYdUkqhnKtUpChsU8/Bridge-Project?node-id=122-1597&t=4j0QipGs7rbaLyJx-1">Wireframes</a> &bull; 
+        <a href="https://www.figma.com/proto/Iplv9OYdUkqhnKtUpChsU8/Bridge-Project?page-id=125%3A2&node-id=125-741&node-type=frame&viewport=514%2C205%2C0.06&t=KYmXZgpw7JnoZbbk-1&scaling=scale-down&content-scaling=fixed">Design Documentation</a> &bull; 
+        <a href="https://docs.google.com/document/d/1DlkPXheiG3wmnPGuJ_PsoYFOc9Wr0l_jKC4f7jUlFiw/edit?usp=sharing">User Report</a> 
+        &nbsp;&nbsp;
+        APIs and library credits:
+        <a href="https://moment.github.io/luxon/#/">Luxon</a> &bull; 
+        <a href="https://www.geonames.org/">Geonames</a> &bull; 
+        <a href="https://html2canvas.hertzen.com/">HTML2Canvas</a>
+      </p>
+    </div>
+  </footer>
   </body>
