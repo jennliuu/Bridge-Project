@@ -105,7 +105,7 @@ function convertToBaseTimezone(cityAvailability, cityTimezone, baseTimezone) {
   
     // goes through all the city availabilities
     availabilities.forEach((availability, index) => {
-      // Determine the class and color based on the city index
+      // assign indexes 
       const cityClass = index === 0 ? "first-city-name" : index === 1 ? "second-city-name" : "third-city-name";
       const timeRangeClass = index === 0 ? "first-time-range" : index === 1 ? "second-time-range" : "third-time-range";
   
@@ -129,7 +129,7 @@ function convertToBaseTimezone(cityAvailability, cityTimezone, baseTimezone) {
         </p>
         ${
           isBaseCity
-            ? "" // No button for the base city
+            ? "" 
             : `<p class="timezone">
                 Converted time: <span class="time-range ${timeRangeClass}">
                 ${convertToBaseTimezone(availability, availability.city.timezone, baseCity.timezone).start} — ${convertToBaseTimezone(availability, availability.city.timezone, baseCity.timezone).end}
@@ -420,9 +420,6 @@ document.getElementById("save-btn").addEventListener("click", function () {
 
 
 // overall 
-// css  + media queries for different screen sizes 
-
-// office hours: change website name?
-
+// make into anchors 
 
 

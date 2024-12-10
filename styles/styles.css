@@ -10,12 +10,11 @@
     /* color palette */
     --blueberry: #0A84FF; 
     --lightblue: #CEE6FF;
+    --city1:#385C89;
+    --city2: #5E5CE6;
+    --city3:#A450CF;
     --black: #000000;
     --white: #FFFFFF; 
-    --cherry: #FF375F;
-    --orange: #FF9F0A; 
-    --lime: #30D158; 
-    --grape: #BF5AF2;
     --darkblue: #1e3a8a;
     --lightestblue: #ECF6FF;
     /* button settings */
@@ -25,8 +24,10 @@
 
 /* setting up the body to be a flexbox */
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -34,55 +35,40 @@ body {
     font-family: Figtree, sans-serif;
 }
 
-/* modal background overlay */
-.modal {
-  position: fixed;
-  z-index: 1000; /* makes sure it sits above everything */
-  left: 0;
-  top: 0;
+/* footer elements */ 
+.footer {
+  background-color: #f9f9f9; 
+  text-align: center; 
+  padding: 10px 20px; 
+  margin-top: 50px;
+  border-top: 1px solid #e0e0e0; 
+  font-size: 0.9rem; 
+  color: #666; 
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
 }
 
-/* modal content container */
-.modal-content {
-  background-color: var(--white);
-  margin: 10% auto; 
-  padding: 50px;
-  border-radius: 20px;
-  width: 90%; 
-  max-width: 500px; 
-  text-align: center;
-  line-height: 30px;
+.footer a {
+  color: var(--blueberry); 
+  text-decoration: none; 
 }
 
-/* Bridge text in modal */
-.bridge-highlight {
-  color: var(--blueberry);
-  font-weight: bold;
+.footer a:hover {
+  text-decoration: underline; 
 }
 
-/* button styling */
-.modal-close-btn {
-  background-color: var(--blueberry);
-  color: white;
-  border: none;
-  padding: var(--button-padding);
-  border-radius: var(--button-radius);
-  cursor: pointer;
+.footer-content p {
+  margin: 5px 0; 
 }
 
-/* hover state */
-.modal-close-btn:hover {
-  background-color: var(--darkblue);
+.footer-content {
+  max-width: 1200px; /* Limit the width of the footer */
+  margin: 0 auto; /* Center it horizontally */
 }
 
 /* setting widths of the overall div  */
 .outer-div {
-    min-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
   }
 
 /* h1 specifications  */
@@ -96,68 +82,24 @@ h1 {
 }
 
 /* adding padding to the logo */
-.logo-div {
-    padding-top: 30px;
+header {
     width: 100%;
     display: flex; 
     justify-content: flex-start;
 }
 
-.logo-div > img {
-  padding-left: 50px;
+.logo-and-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* adding a grid for two sides of the first and last page  */
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-  }
-  
-  /* section for city cards to be flex */
-  .cities {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* styling city cards */
-  .city-card {
-    border: 0.5px solid #4C4C4C;
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-/* styling city card text */
-  .city-card h2 {
-    font-size: 1.2rem;
-    margin: 0;
-    font-weight: 600; 
-  }
-  
-  /* fixing line height */
-  .timezone {
-    font-size: 16px;
-    margin: 5px 0;
-  }
-  
-  /* base timezone buttons */
-  .base-btn {
-    background-color: var(--lightblue);
-    color: var(--black);
-    border: none;
-    border-radius: var(--button-radius);
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 0.8rem;
-  }
-
-  .base-btn:hover {
-    background: var(--lightestblue);
-  }
+/* padding to the logo image */
+img {
+  max-width: 150px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
   
   /* button div styles */
   .buttons {
@@ -170,6 +112,8 @@ h1 {
   .main-buttons {
     display: flex; 
     gap: 10px;
+    padding-top: 50px;
+    padding-right: 50px;
   }
   
   /* button styles */
@@ -191,21 +135,90 @@ h1 {
   color: var(--darkblue);
 } 
 
-  .next-btn {
-    color: var(--white);
-    background: var(--blueberry);
+.next-btn {
+  color: var(--white);
+  background: var(--blueberry);
 }
 
-  .next-btn:hover {
-    background: var(--darkblue);
-  }
+.next-btn:hover {
+  background: var(--darkblue);
+}
 
-  .back-btn {
-    background: var(--lightblue);
+.back-btn {
+  background: var(--lightblue);
 }
 
   .back-btn:hover {
     background: var(--lightestblue);
+}
+
+.started-btn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: var(--blueberry);
+  color: var(--white);
+  border: none;
+  padding: var(--button-padding);
+  font-size: 1rem;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+}
+
+.started-btn:hover {
+  background-color: var(--darkblue); 
+}
+
+.next-btn.disabled {
+  background-color: #cccccc; /* Light gray */
+  cursor: not-allowed; /* Show a "not-allowed" cursor */
+  pointer-events: none; /* Disable all interactions */
+}
+
+/* index.html styles
+/* container setup */
+
+.container {
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+  background-color: var(--lightblue);
+  margin-top: 50px;
+}
+
+/* content styling */
+.content {
+  max-width: 750px;
+  padding: 50px;
+}
+
+.content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.content .description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 2;
+}
+
+/* steps list styling */
+.steps {
+  text-align: start;
+  padding-left: 20px;
+}
+
+.steps li {
+  margin-bottom: 1rem;
+}
+
+.steps li b {
+  color: var(--black); 
 }
 
 
@@ -218,7 +231,6 @@ h1 {
 
   /* specifications of top-div */
  .top-div {
-    padding-top: 50px;
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -234,15 +246,10 @@ h1 {
  .city-tag, .chosen-city {
     display: inline-block;
     padding: var(--button-padding);
-    background-color: #5DDCD8;
+    background-color: var(--city1);
     color: var(--white);
     border-radius: var(--button-radius);
     cursor: pointer;
-}
-
-/* hover state */
- .city-tag:hover {
-    background-color: #FF8C00;
 }
 
   /* search bar specifications */
@@ -251,7 +258,7 @@ h1 {
     display: flex; 
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    width: 90%;
 }
 
   /* search bar content specifications */
@@ -289,6 +296,13 @@ h1 {
 }
 
   /* cities.html and cities.js styles */
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
 
   #city-chosen { 
     display: flex; 
@@ -373,14 +387,21 @@ select {
 }
 
 /* adding formatting for the city availabilities */
-#base-city-container .city, #other-cities-container .city{
-  gap: 50px;
-}
 
-#base-city-container, #other-cities-container .city{
+#other-cities-container .city, #base-city-container .city{
   display: flex; 
   flex-direction: row; 
   justify-content: space-between;
+  width: 100%;
+  gap: 50px
+}
+
+@media screen and (max-width: 760px) {
+  #other-cities-container .city, #base-city-container .city{
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+  }
 }
 
 /* altogether.js and altogether.html styles */
@@ -426,66 +447,80 @@ select {
 
 /* city card and time range colors*/
 .first-city-name, .first-time-range {
-  color: #385C89;
+  color: var(--city1);
   padding: 0;
 }
 .second-city-name, .second-time-range {
-  color: #5E5CE6;
+  color: var(--city2);
   padding: 0;
 }
 .third-city-name, .third-time-range {
-  color: #A450CF;
+  color: var(--city3);
   padding: 0;
 }
 
-/* new */
+/* for each base citycard that is highlighted */
 .city-card.highlight {
   border: 2px solid var(--blueberry); /* Highlight border for the base city */
   box-shadow: 0 0 10px rgba(38, 146, 255, 0.5); /* Optional glow effect */
 } 
 
+/* time label color */
 .highlight-blue {
   color: var(--blueberry);
   font-weight: bold;
 }
 
-/* footer elements */ 
-.footer {
-  background-color: #f9f9f9; /* Light gray background */
-  text-align: center; /* Center align text */
-  padding: 10px 20px; /* Padding for spacing */
-  margin-top: 50px;
-  border-top: 1px solid #e0e0e0; /* Subtle top border */
-  font-size: 14px; /* Slightly smaller font size */
-  color: #666; /* Neutral text color */
-  width: 100%;
-  position: absolute; 
-  bottom: 0;
+/* adding a grid for two sides of the last page  */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
 }
 
-.footer a {
-  color: #0073e6; /* Link color */
-  text-decoration: none; /* Remove underline from links */
-}
-
-.footer a:hover {
-  text-decoration: underline; /* Underline on hover */
-}
-
-.footer-content p {
-  margin: 5px 0; /* Space between paragraphs */
-}
-
-.footer-content {
-  max-width: 1200px; /* Limit the width of the footer */
-  margin: 0 auto; /* Center it horizontally */
-}
-
-.logo-button-div {
+/* section for city cards to be flex */
+.cities {
   display: flex;
-  padding-top: 30px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* styling city cards */
+.city-card {
+  border: 0.5px solid #4C4C4C;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* styling city card text */
+.city-card h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 600; 
+}
+
+/* fixing line height */
+.timezone {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* base timezone buttons */
+.base-btn {
+  background-color: var(--lightblue);
+  color: var(--black);
+  border: none;
+  border-radius: var(--button-radius);
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.base-btn:hover {
+  background: var(--lightestblue);
 }
 
 #base-city-heading { 
@@ -493,80 +528,32 @@ select {
   padding-bottom: 20px;
 }
 
-.next-btn.disabled {
-  background-color: #cccccc; /* Light gray */
-  cursor: not-allowed; /* Show a "not-allowed" cursor */
-  pointer-events: none; /* Disable all interactions */
+/* media queries */
+
+@media screen and (max-width: 1450px) {
+  .main-content {
+    padding: 0 30px;
+  }
 }
 
-/* Error message styling */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
+@media screen and (max-width: 980px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
 }
 
-
-/* container setup */
-.container {
-  margin-top: 100px;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  text-align: start;
-  background-color: var(--lightblue);
+@media screen and (max-width: 600px) {
+  .graph-container {
+    display: none;
+  }
+  .hour-label {
+    display: none;
+  }
+  .main-grid {
+    gap: 20px;
+  }
 }
-
-/* content styling */
-.content {
-  max-width: 750px;
-  padding: 0 20px;
-}
-
-.content h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  padding-left: 0;
-}
-
-.content .description {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 2;
-}
-
-/* steps list styling */
-.steps {
-  text-align: start;
-  padding-left: 20px;
-}
-
-.steps li {
-  margin-bottom: 1rem;
-}
-
-.steps li b {
-  color: var(--black); 
-}
-
-/* button styling */
-.started-btn {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: var(--blueberry);
-  color: var(--white);
-  border: none;
-  padding: var(--button-padding);
-  font-size: 1rem;
-  border-radius: var(--button-radius);
-  cursor: pointer;
-}
-
-.started-btn:hover {
-  background-color: var(--darkblue); 
-}
-
